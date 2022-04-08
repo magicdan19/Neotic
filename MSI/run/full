@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+docker run -it --rm --privileged --net=host \
+  --env=ROS_MASTER_URI=http://msi:11311/ \
+  --env=ROS_HOSTNAME=msi \
+  --name full \
+  magicdan/msi-ros-noetic-robot:latest \
+  /bin/bash

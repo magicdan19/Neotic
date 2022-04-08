@@ -1,0 +1,4 @@
+# version pour amd64 de ros-NOETIC
+
+FROM ros:noetic-robot-focal
+
