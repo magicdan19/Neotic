@@ -44,22 +44,10 @@ RUN apt-get update && \
     python3-rosinstall-generator \
     python3-wstool 
 
-
-
-#
-# init/update rosdep
-#
-RUN apt-get update && \
-    cd ${ROS_ROOT} && \
-    rosdep init && \
-    rosdep update && \
-
-
-
 # 
 # setup entrypoint
 #
-COPY ./ros_entrypoint.sh /ros_entrypoint.sh
+#COPY ./ros_entrypoint.sh /ros_entrypoint.sh
 RUN echo 'source /opt/ros/${ROS_DISTRO}/setup.bash' >> /root/.bashrc
 ENTRYPOINT ["/ros_entrypoint.sh"]
 CMD ["bash"]
@@ -67,11 +55,12 @@ WORKDIR /
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-	nano \
-    ros-${ROS_DISTRO}-joint-state-publisher-gui \
-    ros-${ROS_DISTRO}-rviz \
-    ros-${ROS_DISTRO}-gazebo11* \
-    rm -rf /var/lib/apt/lists/*
+	nano 
+    
+    #ros-${ROS_DISTRO}-joint-state-publisher-gui \
+    #ros-${ROS_DISTRO}-rviz \
+    #ros-${ROS_DISTRO}-gazebo11* \
+    #rm -rf /var/lib/apt/lists/*
 
     
 
