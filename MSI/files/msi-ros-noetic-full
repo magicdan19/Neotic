@@ -47,7 +47,7 @@ RUN echo 'source /opt/ros/${ROS_DISTRO}/setup.bash' >> /root/.bashrc
 ENTRYPOINT ["/ros_entrypoint.sh"]
 CMD ["bash"]
 WORKDIR /
-
+ros
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
 	nano 
@@ -61,5 +61,8 @@ RUN cd /catkin_ws
 
 RUN rosdep install --from-paths /catkin_ws/src --ignore-src -r -y
 
-RUN /bin/bash -c '. /opt/ros/noetic/setup.bash; cd /catkin_ws; catkin_make'    
+RUN /bin/bash -c '. /opt/ros/noetic/setup.bash; cd /catkin_ws; catkin_make' 
 
+RUN /bin/bash -c 'chmod -R 777 /catkin_ws/*'    
+
+RUN /bin/bash -c '. source /catkin_ws/devel/setup.bash'  
