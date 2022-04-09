@@ -3,8 +3,8 @@
 xhost +si:localuser:root 
 
 docker run -it --rm --privileged --net=host \
-    --env=ROS_MASTER_URI=http://jetsonagx:11311/ \
-    --env=ROS_HOSTNAME=jetsonagx \
+    --env=ROS_MASTER_URI=http://msi:11311/ \
+    --env=ROS_HOSTNAME=msi \
     --env=NVIDIA_VISIBLE_DEVICES=all \
     --env=NVIDIA_DRIVER_CAPABILITIES=all \
     --env=DISPLAY \
