@@ -7,7 +7,7 @@ docker run -it --rm --privileged --net=host \
   --volume=/home/dan/temp:/tmp \
   --name nano \
   magicdan/msi-ros-noetic-opencr:latest \
-  /bin/bash
+  rosrun rosserial_python serial_node.py __name:="nano" _baud:=115200 _port:=/dev/ttyUSB0
 
 # rosrun rosserial_python serial_node.py __name:="nano" _baud:=115200 _port:=/dev/ttyUSB0
 

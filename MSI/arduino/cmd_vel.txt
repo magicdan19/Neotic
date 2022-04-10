@@ -1,0 +1,23 @@
+  float speed_req = cmd_vel.linear.x;                                     //Extract the commanded linear speed from the message
+  float angular_speed_req = cmd_vel.angular.z;
+  
+  char msg[sizeof(double)];
+  dtostrf(speed_req, 10, 5, msg);
+  nh.loginfo(msg);
+  
+  dtostrf(angular_speed_req, 10, 5, msg);
+  nh.loginfo(msg);
+  
+  float speed_req_left = speed_req - angular_speed_req * (distance_roues / 2); //Calculate the required speed for the left motor to comply with commanded linear and angular speeds
+  float speed_req_right = speed_req + angular_speed_req * (distance_roues / 2); //Calculate the required speed for the right motor to comply with commanded linear and angular speeds
+
+
+
+  //char msg[sizeof(double)];
+  dtostrf(speed_req_left, 10, 5, msg);
+  nh.loginfo(msg);
+  
+  dtostrf(speed_req_right, 10, 5, msg);
+  nh.loginfo(msg);
+  
+  moteur(speed_req_left , speed_req_right );

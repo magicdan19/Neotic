@@ -46,7 +46,7 @@ RUN apt-get update && \
 RUN echo 'source /opt/ros/${ROS_DISTRO}/setup.bash' >> /root/.bashrc
 ENTRYPOINT ["/ros_entrypoint.sh"]
 CMD ["bash"]
-WORKDIR /
+WORKDIR /catkin_ws/src
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -55,7 +55,7 @@ RUN apt-get update && \
 RUN mkdir -p /catkin_ws/src/ \
     && cd /catkin_ws/src/ 
 
-COPY /catkin_ws/src /catkin_ws/src
+COPY /src/ /catkin_ws/src/
 #RUN git clone https://github.com/ros-mobile-robots/diffbot.git
 
 RUN cd /catkin_ws
@@ -66,4 +66,4 @@ RUN /bin/bash -c '. /opt/ros/noetic/setup.bash; cd /catkin_ws; catkin_make'
 
 RUN /bin/bash -c 'chmod -R 777 /catkin_ws/*'    
 
-RUN /bin/bash -c '. source /catkin_ws/devel/setup.bash'  
+# RUN /bin/bash -c '. source /catkin_ws/devel/setup.bash'  
