@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+  <!-- Wheels materials color-->
+  <gazebo reference="wheel_left_link">
+  
+        <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="wheel_right_link">
+        <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- Wheels diff driver-->
+  <gazebo>
+    <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometrySource>world</odometrySource>
+      <publishOdomTF>true</publishOdomTF>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <publishWheelTF>true</publishWheelTF>
+      <publishTf>true</publishTf>
+      <publishWheelJointState>true</publishWheelJointState>
+      <legacyMode>false</legacyMode>
+      <updateRate>30</updateRate>
+      <leftJoint>wheel_left_joint</leftJoint>
+      <rightJoint>wheel_right_joint</rightJoint>
+      <wheelSeparation>0.45</wheelSeparation>
+      <wheelDiameter>0.220</wheelDiameter>
+      <wheelAcceleration>3</wheelAcceleration>
+      <wheelTorque>3</wheelTorque>
+      <rosDebugLevel>true</rosDebugLevel>
+      <broadcastTF>1</broadcastTF>
+      
+    </plugin>
+   </gazebo>
+</robot>

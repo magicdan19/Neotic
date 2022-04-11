@@ -1,0 +1,8 @@
+prefix=/catkin_ws/install
+
+Name: tondeuse_navigation
+Description: Description of tondeuse_navigation
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

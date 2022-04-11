@@ -1,0 +1,8 @@
+prefix=/catkin_ws/install
+
+Name: tondeuse_launch
+Description: Description of tondeuse_launch
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
