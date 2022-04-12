@@ -32,3 +32,14 @@ RUN echo "source /catkin_ws/devel/setup.bash" >> ~/.bashrc
 RUN /bin/bash -c '. /catkin_ws/devel/setup.bash'
 
 COPY exec.sh exec.sh
+
+# est installé par le rosdep
+#executing command [apt-get install -y ros-noetic-camera-info-manager]
+#executing command [apt-get install -y ros-noetic-diagnostic-updater]
+#executing command [apt-get install -y ros-noetic-dynamic-reconfigure]
+#executing command [apt-get install -y ros-noetic-image-transport]
+#executing command [apt-get install -y libfreenect-dev]
+#executing command [apt-get install -y ros-noetic-nodelet]
+#executing command [apt-get install -y ros-noetic-image-proc]
+#executing command [apt-get install -y ros-noetic-rgbd-launch]
+#executing command [apt-get install -y ros-noetic-tf]
