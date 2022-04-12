@@ -1,0 +1,29 @@
+#!/bin/bash
+
+xhost +si:localuser:root 
+
+docker run -it --rm --privileged --net=host \
+  --env=ROS_MASTER_URI=http://jetsonagx:11311/ \
+  --env=ROS_HOSTNAME=jetsonnano \
+    --env=NVIDIA_VISIBLE_DEVICES=all \
+    --env=NVIDIA_DRIVER_CAPABILITIES=all \
+    --env=DISPLAY \
+    --env=QT_X11_NO_MITSHM=1 \
+    --runtime=nvidia \
+    --env=NVIDIA_VISIBLE_DEVICES=0 \
+    --volume /tmp/.X11-unix:/tmp/.X11-unix \
+    --volume /home/dan/catkin_ws:/catkin_ws \
+magicdan/aarch64-ros-noetic-full \
+/bin/bash
+
+# /bin/bash
+# rosrun rosserial_python serial_node.py _baud:=115200 _port:=/dev/ttyopencr
+# rosrun turtlesim turtlesim_node
+
+#### après reboot executer :
+#### xhost +local:root
+
+# rostopic pub coupe std_msgs/Empty --once
+# rostopic pub fan std_msgs/Empty --once
+
+# sudo chmod 777 /var/run/docker.sock

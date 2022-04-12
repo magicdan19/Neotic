@@ -1,0 +1,8 @@
+#!/bin/bash
+
+docker run -it --rm --privileged --net=host \
+  --env=ROS_MASTER_URI=http://jetsonagx:11311/ \
+  --env=ROS_HOSTNAME=jetsonnano \
+  --name topic \
+  magicdan/aarch64-ros-noetic-base:latest \
+  /bin/bash

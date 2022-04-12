@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"path": "../../../../snap/arduino/current/Arduino/Test_tondeusev1.0"
+		},
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../tondeuse"
+		}
+	],
+	"settings": {
+		"files.autoSave": "onFocusChange",
+		"files.associations": {
+			"*.tcc": "cpp",
+			"unordered_map": "cpp",
+			"fstream": "cpp",
+			"istream": "cpp",
+			"ostream": "cpp",
+			"sstream": "cpp"
+		}
+	}
+}

@@ -1,0 +1,3 @@
+# version pour aarch64 de ros-NOETIC
+
+FROM ros:noetic-ros-core-focal

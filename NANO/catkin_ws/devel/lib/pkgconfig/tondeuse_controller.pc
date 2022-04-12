@@ -1,0 +1,8 @@
+prefix=/catkin_ws/devel
+
+Name: tondeuse_controller
+Description: Description of tondeuse_controller
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,7 @@
+FROM magicdan/aarch64-ros-noetic-base:latest
+
+USER root
+
+RUN apt-get update && apt-get install ros-noetic-turtlesim -y --no-install-recommends 
+
+RUN apt-get install ros-noetic-rosse* -y --no-install-recommends nano

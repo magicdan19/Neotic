@@ -1,0 +1,18 @@
+#!/bin/bash
+
+docker run -it --rm --privileged --net=host \
+--volume /dev:/dev \
+  --env=ROS_MASTER_URI=http://jetsonagx:11311/ \
+  --env=ROS_HOSTNAME=jetsonnano \
+magicdan/aarch64-ros-noetic-kinect:latest \
+/catkin_ws/exec.sh
+
+#/bin/bash
+#roslaunch freenect_launch freenect.launch
+#/catkin_ws/exec.sh
+
+## proble d'openGL corrigé
+#apt-get install mesa-utils
+
+#rosdep install --from-paths src --ignore-src -r -y
+# A00363A07046048A
