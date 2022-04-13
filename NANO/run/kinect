@@ -5,7 +5,7 @@ docker run -it --rm --privileged --net=host \
   --env=ROS_MASTER_URI=http://jetsonagx:11311/ \
   --env=ROS_HOSTNAME=jetsonnano \
   --device=/dev/ttykinect \
-magicdan/aarch64-ros-noetic-kinect:latest \
+  magicdan/ros-kinect-aarch64:latest \
 /catkin_ws/exec.sh
 
 #/bin/bash

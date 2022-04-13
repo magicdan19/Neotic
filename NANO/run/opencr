@@ -3,15 +3,13 @@
 docker run -it --rm --privileged --net=host \
   --env=ROS_MASTER_URI=http://jetsonagx:11311/ \
   --env=ROS_HOSTNAME=jetsonnano \
-  --volume=/dev/:/dev/ \
-  --device=/dev/ttyopencrt \
+  --volume=/dev:/dev \
   --name opencr \
-  magicdan/aarch64-ros-noetic-opencr:latest \
-  rosrun rosserial_python serial_node.py __name:="opencr" _baud:=115200 _port:=/dev/ttyACM0
+  magicdan/ros-opencr-aarch64:latest \
+  /bin/bash
 
- 
 # /bin/bash
-# rosrun rosserial_python serial_node.py _baud:=115200 _port:=/dev/ttyopencr
+# rosrun rosserial_python serial_node.py __name:="opencr" _baud:=115200 _port:=/dev/ttyopencr
 # rosrun turtlesim turtlesim_node
 
 #### après reboot executer :

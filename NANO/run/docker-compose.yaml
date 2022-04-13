@@ -2,7 +2,7 @@ version: "3.9"
     
 services:
   nano:
-    image: magicdan/aarch64-ros-noetic-opencr:latest
+    image: magicdan/ros-opencr-aarch64:latest
     network_mode: "host" 
     privileged: true
     environment:
@@ -17,7 +17,7 @@ services:
     restart: always
     
   opencr:
-    image: magicdan/aarch64-ros-noetic-opencr:latest
+    image: magicdan/ros-opencr-aarch64:latest
     network_mode: "host" 
     environment:
       - "ROS_MASTER_URI=http://192.168.50.180:11311"
@@ -31,7 +31,7 @@ services:
     restart: always
   
   kinect:
-    image: magicdan/aarch64-ros-noetic-kinect:latest
+    image: magicdan/ros-kinect-aarch64:latest 
     network_mode: "host" 
     environment:
       - "ROS_MASTER_URI=http://192.168.50.180:11311"
