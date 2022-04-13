@@ -1,9 +1,10 @@
 #!/bin/bash
 
 docker run -it --rm --privileged --net=host \
---volume /dev:/dev \
+  --volume /dev:/dev \
   --env=ROS_MASTER_URI=http://jetsonagx:11311/ \
   --env=ROS_HOSTNAME=jetsonnano \
+  --device=/dev/ttykinect \
 magicdan/aarch64-ros-noetic-kinect:latest \
 /catkin_ws/exec.sh
 

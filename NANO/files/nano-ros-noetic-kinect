@@ -1,4 +1,4 @@
-FROM magicdan/aarch64-ros-noetic-base
+FROM magicdan/aarch64-ros-noetic-base:latest
 
 RUN mkdir -p /catkin_ws/src
 

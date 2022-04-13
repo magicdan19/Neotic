@@ -1,0 +1,14 @@
+version: "3.9"
+    
+services:
+  nano:
+    image: magicdan/aarch64-ros-noetic-opencr:latest
+    network_mode: "host" 
+    environment:
+      - "ROS_MASTER_URI=http://jetsonagx:11311"
+    volumes:
+      - /dev/:/dev/
+    command: rosrun rosserial_python serial_node.py __name:="nano" _baud:=115200 _port:=/dev/ttynano
+    restart: always
+  
+  
