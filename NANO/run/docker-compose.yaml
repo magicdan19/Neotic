@@ -33,13 +33,12 @@ services:
   kinect:
     image: magicdan/ros-kinect-aarch64:latest 
     network_mode: "host" 
+    privileged: true
     environment:
       - "ROS_MASTER_URI=http://192.168.50.180:11311"
       - "ROS_HOSTNAME=jetsonnano" 
     volumes:
-      - /dev/:/dev/
-    devices:
-      - /dev/ttykinect
+      - /dev/ttykinect:/dev/ttykinect
     tty: true
     command: /catkin_ws/exec.sh
     restart: always
