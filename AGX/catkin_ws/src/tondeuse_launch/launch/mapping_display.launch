@@ -1,0 +1,19 @@
+<launch>
+  <include file="$(find tondeuse_launch)/launch/mapping.launch" />
+  <param name="/use_sim_time" type="bool" value="false"/>
+  
+  <arg name="rvizconfig" default="$(find tondeuse_launch)/rviz/config_file.rviz" />
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+  
+</launch>
+
+<!-- 
+<arg name="map_file" default="$(find tondeuse_navigation)/map/sous-sol.yaml"/>
+
+<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" respawn="true" />
+
+ <include file="$(find tondeuse_gazebo)/tondeuse_gazebo.launch" />
+
+
+-->

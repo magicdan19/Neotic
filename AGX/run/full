@@ -1,0 +1,50 @@
+#!/bin/bash
+
+xhost +si:localuser:root 
+
+docker run -it --rm --privileged --net=host \
+  --env=ROS_MASTER_URI=http://jetsonagx:11311/ \
+  --env=ROS_HOSTNAME=jetsonagx \
+  --env=NVIDIA_VISIBLE_DEVICES=all \
+  --env=NVIDIA_DRIVER_CAPABILITIES=all \
+  --env=DISPLAY \
+  --env=QT_X11_NO_MITSHM=1 \
+  --runtime=nvidia \
+  --env=NVIDIA_VISIBLE_DEVICES=0 \
+  --volume /tmp/.X11-unix:/tmp/.X11-unix \
+  --volume /tmp:/tmp \
+  --volume /home/dan/Neotic/AGX/catkin_ws:/catkin_ws \
+magicdan/ros-melodic-full-aarch64:latest \
+/bin/bash
+
+# /bin/bash
+# roslaunch tondeuse_launch rviz.launch
+# roslaunch depthimage_to_laserscan launchfile_sample.launch
+# roslaunch tondeuse_launch gazebo.launch
+# roslaunch tondeuse_launch rviz.launch
+# roslaunch tondeuse_launch mapping_display.launch
+
+# rosrun rosserial_python serial_node.py _baud:=115200 _port:=/dev/ttyopencr
+# rosrun turtlesim turtlesim_node
+
+#### après reboot executer :
+#### xhost +local:root
+
+# rostopic pub coupe std_msgs/Empty --once
+# rostopic pub fan std_msgs/Empty --once
+
+#sudo chmod 777 /var/run/docker.sock
+
+#/bin/bash
+#roslaunch freenect_launch freenect.launch
+#/catkin_ws/exec.sh
+
+## proble d'openGL corrigé
+#apt-get install mesa-utils
+
+# rosdep install --from-paths src --ignore-src -r -y
+# A00363A07046048A
+
+# sudo chmod 777 /var/run/docker.sock
+
+# rosdep install --from-paths src --ignore-src -r -y
