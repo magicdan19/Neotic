@@ -2,7 +2,7 @@ version: "3.9"
     
 services:
   nano:
-    image: magicdan/aarch64-ros-noetic-opencr:latest
+    image:  magicdan/ros-opencr-aarch64:latest
     network_mode: "host" 
     environment:
       - "ROS_MASTER_URI=http://jetsonagx:11311"
@@ -11,4 +11,22 @@ services:
     command: rosrun rosserial_python serial_node.py __name:="nano" _baud:=115200 _port:=/dev/ttynano
     restart: always
   
-  
+  opencr:
+    image:  magicdan/ros-opencr-aarch64:latest
+    network_mode: "host" 
+    environment:
+      - "ROS_MASTER_URI=http://jetsonagx:11311"    
+    volumes:
+      - /dev/:/dev/
+    command: rosrun rosserial_python serial_node.py __name:="opencr" _baud:=115200 _port:=/dev/ttopencr
+    restart: always
+
+  kinect:
+    image: magicdan/ros-kinect-aarch64:latest
+    network_mode: "host" 
+    environment:
+      - "ROS_MASTER_URI=http://jetsonagx:11311"
+    volumes:
+      - /dev/:/dev/
+    command: /catkin_ws/exec.sh
+    restart: always
