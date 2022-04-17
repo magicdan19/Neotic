@@ -1,37 +1,47 @@
-FROM magicdan/ros-tondeuse-aarch64 
+FROM dustynv/ros:melodic-ros-base-l4t-r32.7.1
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-	nano \
-    ros-melodic-robot-pose-ekf \
-    ros-melodic-gmapping \
-    ros-melodic-map-server
-    
-RUN mkdir -p /catkin_ws/src/ \
-    && cd /catkin_ws/src/ 
+ARG DEBIAN_FRONTEND=noninteractive
 
-COPY /src/ /catkin_ws/src/
-#RUN git clone https://github.com/ros-mobile-robots/diffbot.git
+RUN mkdir -p /catkin_ws/src
 
-RUN cd /catkin_ws
+WORKDIR /catkin_ws/src
 
-RUN rosdep install --from-paths /catkin_ws/src --ignore-src -r -y
+RUN apt-get update --fix-missing && apt-get install --no-install-recommends -y \
+    git \
+    apt-utils \
+    cmake \
+    build-essential \
+    curl \
+    wget \
+    gnupg2 \
+    lsb-release \
+    ca-certificates \
+    python-rosinstall-generator \
+    python-rosdep \
+    python-rosinstall \
+    python-wstool \
+    libcanberra-gtk-module \
+    libcanberra-gtk3-module
 
-RUN /bin/bash -c '. /opt/ros/melodic/setup.bash; cd /catkin_ws; catkin_make' 
+RUN git clone --branch melodic-devel https://github.com/ros-drivers/freenect_stack.git
 
-RUN /bin/bash -c 'chmod -R 777 /catkin_ws/*'    
+RUN git clone --branch melodic https://github.com/ros-perception/image_pipeline.git
 
-ENV NVIDIA_VISIBLE_DEVICES all
-ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
+RUN git clone --branch indigo-devel https://github.com/ros-drivers/openni_camera.git
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    ros-melodic-rtabmap-ros \
-    util-linux
-    
-RUN useradd --create-home dan
+WORKDIR /catkin_ws
 
-USER root
+RUN rosdep update
+
+RUN rosdep install --from-paths src --ignore-src -r -y
+
+RUN /bin/bash -c '. /opt/ros/melodic/setup.bash; cd /catkin_ws; catkin_make'
+
+RUN echo "source /catkin_ws/devel/setup.bash" >> ~/.bashrc
+RUN /bin/bash -c '. /catkin_ws/devel/setup.bash'
+
+COPY exec.sh exec.sh
+
 
 # nvidia-container-runtime
 ENV NVIDIA_VISIBLE_DEVICES \
@@ -40,4 +50,3 @@ ENV NVIDIA_DRIVER_CAPABILITIES \
     ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
 
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/aarch64-linux-gnu/tegra
-

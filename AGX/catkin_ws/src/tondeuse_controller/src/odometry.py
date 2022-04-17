@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 import math
 from math import sin, cos, pi
 
@@ -9,7 +9,7 @@ from std_msgs.msg import Int16
 from geometry_msgs.msg import Point, Pose, Quaternion, Twist, Vector3
 
 #Parameters
-wheeltrack = 0.45
+wheeltrack = 0.445
 wheelradius = 0.1075
 TPR = 80
 left_ticks = 0
@@ -21,9 +21,9 @@ x = 0.0
 y = 0.0
 th = 0.0
 
-vx =  0.0
-vy =  0.0
-vth =  0.0
+vx =  0.1
+vy =  -0.1
+vth =  0.1
 
 def leftTicksCallback(msg):
     global left_ticks 
@@ -36,8 +36,8 @@ def rightTicksCallback(msg):
 rospy.init_node('odometry_publisher')
 
 odom_pub = rospy.Publisher("odom", Odometry, queue_size=50)
-left_ticks_sub =rospy.Subscriber("/left_ticks", Int16, leftTicksCallback)
-right_ticks_sub =rospy.Subscriber("/right_ticks", Int16, rightTicksCallback)
+left_ticks_sub =rospy.Subscriber("left_ticks", Int16, leftTicksCallback)
+right_ticks_sub =rospy.Subscriber("right_ticks", Int16, rightTicksCallback)
 odom_broadcaster = tf.TransformBroadcaster()
 
 current_time = rospy.Time.now()
@@ -47,13 +47,13 @@ r = rospy.Rate(10)
 
 while not rospy.is_shutdown():
     current_time = rospy.Time.now()
+    dt = (current_time - last_time).to_sec()
 
     delta_L = left_ticks - last_left_ticks
     delta_R = right_ticks - last_right_ticks
     dl = 2 * pi * wheelradius * delta_L / TPR
     dr = 2 * pi * wheelradius * delta_R / TPR
     dc = (dl + dr) / 2
-    dt = (current_time - last_time).to_sec()
     dth = (dr-dl)/wheeltrack
 
     if dr==dl:
@@ -80,8 +80,8 @@ while not rospy.is_shutdown():
        (x, y, 0.),
        odom_quat,
        current_time,
-       "base_link",
-       "odom"
+        "base_link",
+        "odom"
     )
 
     # next, we'll publish the odometry message over ROS
@@ -105,3 +105,4 @@ while not rospy.is_shutdown():
     last_left_ticks = right_ticks
     last_time = current_time
     r.sleep()
+

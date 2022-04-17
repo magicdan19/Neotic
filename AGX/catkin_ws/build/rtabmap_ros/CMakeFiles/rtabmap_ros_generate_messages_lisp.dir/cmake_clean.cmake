@@ -1,0 +1,42 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/rtabmap_ros_generate_messages_lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/msg/UserData.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/msg/EnvSensor.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/msg/OdomInfo.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/msg/Point3f.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/msg/Link.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/msg/RGBDImages.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/msg/KeyPoint.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/msg/ScanDescriptor.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/msg/MapGraph.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/msg/Path.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/msg/Goal.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/msg/RGBDImage.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/msg/Point2f.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/msg/NodeData.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/msg/GlobalDescriptor.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/msg/MapData.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/msg/Info.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/msg/GPS.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/srv/LoadDatabase.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/srv/GetPlan.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/srv/GetMap.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/srv/ResetPose.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/srv/SetLabel.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/srv/PublishMap.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/srv/SetGoal.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/srv/GetNodesInRadius.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/srv/GetMap2.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/srv/RemoveLabel.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/srv/GetNodeData.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/srv/GlobalBundleAdjustment.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/srv/CleanupLocalGrids.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/srv/DetectMoreLoopClosures.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/srv/ListLabels.lisp"
+  "/catkin_ws/devel/share/common-lisp/ros/rtabmap_ros/srv/AddLink.lisp"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/rtabmap_ros_generate_messages_lisp.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

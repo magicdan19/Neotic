@@ -139,6 +139,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/catkin_ws/build/depthimage_to_laserscan/cmake_install.cmake")
   include("/catkin_ws/build/localization_data_pub/cmake_install.cmake")
   include("/catkin_ws/build/robot_localization/cmake_install.cmake")
+  include("/catkin_ws/build/rtabmap_ros/cmake_install.cmake")
 
 endif()
 
