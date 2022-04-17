@@ -1,13 +1,13 @@
 #!/bin/bash
 
 docker run -it --rm --privileged --net=host \
-  --env=ROS_MASTER_URI=http://jetsonagx:11311/ \
+  --env=ROS_MASTER_URI=http://192.168.50.180:11311/ \
   --env=ROS_HOSTNAME=jetsonnano \
-  --volume=/dev/:/dev/ \
-  --volume=/home/dan/temp:/tmp \
+  --volume=/dev:/dev \
+  --device=/dev/$(readlink /dev/ttynano) \
   --name nano \
-  magicdan/aarch64-ros-noetic-opencr:latest \
-  rosrun rosserial_python serial_node.py __name:="nano" _baud:=115200 _port:=/dev/ttyUSB0
+  magicdan/ros-opencr-aarch64:latest \
+  rosrun rosserial_python serial_node.py __name:="nano" _baud:=115200 _port:=/dev/ttynano
 
 # rosrun rosserial_python serial_node.py __name:="nano" _baud:=115200 _port:=/dev/ttyUSB0
 
