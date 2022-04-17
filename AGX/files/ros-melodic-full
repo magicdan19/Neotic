@@ -41,3 +41,5 @@ ENV NVIDIA_DRIVER_CAPABILITIES \
 
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/aarch64-linux-gnu/tegra
 
+####### ajouter pour gérer les priorités de cmd_vel
+# git clone --branch melodic-devel https://github.com/ros-teleop/twist_mux.git

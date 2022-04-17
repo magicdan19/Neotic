@@ -10,7 +10,7 @@ from geometry_msgs.msg import Point, Pose, Quaternion, Twist, Vector3
 
 #Parameters
 wheeltrack = 0.445
-wheelradius = 0.1075
+wheelradius = 0.110
 TPR = 80
 left_ticks = 0
 right_ticks = 0
@@ -28,14 +28,14 @@ vth =  0.1
 def leftTicksCallback(msg):
     global left_ticks 
     left_ticks = msg.data
-
+    
 def rightTicksCallback(msg):
     global right_ticks 
     right_ticks = msg.data
 
-rospy.init_node('odometry_publisher')
+rospy.init_node('odometry_wheels_publisher')
 
-odom_pub = rospy.Publisher("odom", Odometry, queue_size=50)
+odom_pub = rospy.Publisher("odom/wheels", Odometry, queue_size=50)
 left_ticks_sub =rospy.Subscriber("left_ticks", Int16, leftTicksCallback)
 right_ticks_sub =rospy.Subscriber("right_ticks", Int16, rightTicksCallback)
 odom_broadcaster = tf.TransformBroadcaster()
@@ -81,13 +81,13 @@ while not rospy.is_shutdown():
        odom_quat,
        current_time,
         "base_link",
-        "odom"
+        "odom/wheels"
     )
 
     # next, we'll publish the odometry message over ROS
     odom = Odometry()
     odom.header.stamp = current_time
-    odom.header.frame_id = "odom"
+    odom.header.frame_id = "odom/wheels"
 
     odom.pose.pose = Pose(Point(x, y, 0.), Quaternion(*odom_quat))
 

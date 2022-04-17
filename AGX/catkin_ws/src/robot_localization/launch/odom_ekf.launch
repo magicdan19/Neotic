@@ -15,7 +15,7 @@
 
        <param name="odom_frame" value="odom"/>
 
-       <param name="base_link_frame" value="base_footprint"/>
+       <param name="base_link_frame" value="base_link"/>
 
        <param name="world_frame" value="odom"/>
 
@@ -23,7 +23,7 @@
 
        <param name="odom0" value="odom/wheels"/>
 
-       <param name="odom0_differential" value="false" />
+       <param name="odom0_differential" value="true" />
 
        <param name="odom0_relative" value="false" />
 
@@ -33,7 +33,7 @@
 
                                        false, false, false,
 
-                                       true, true, false,
+                                       true, true, true,
 
                                        false, false, true,
 
@@ -51,21 +51,21 @@
 
        <rosparam param="imu0_config">[false,  false, false,
 
-                                      false, false, false,
+                                      true, true, true,
 
                                       false, false, false,
 
                                       true , true, true,
 
-                                      true, true, true]</rosparam>
+                                      false, false, false]</rosparam>
 
-       <param name="print_diagnostics" value="true" />
+      <param name="print_diagnostics" value="true" />
 
-       <param name="debug" value="false" />
+      <param name="debug" value="false" />
 
-       <param name="debug_out_file" value="debug_odom_ekf.txt" />
+      <param name="debug_out_file" value="debug_odom_ekf.txt" />
 
-       <rosparam param="process_noise_covariance">[0.05, 0,    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,    0, 0, 0,
+      <rosparam param="process_noise_covariance">[0.05, 0,    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,    0, 0, 0,
 
                                                    0, 0.05, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0,
 
@@ -93,9 +93,10 @@
 
                                                    0, 0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0.01, 0,
 
-                                                   0, 0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0.005]</rosparam>
+                                                   0, 0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0.005]
+      </rosparam>
 
-       <rosparam param="initial_estimate_covariance">[1e-9, 0,    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,    0, 0,
+      <rosparam param="initial_estimate_covariance">[1e-9, 0,    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,    0, 0,
 
                                                       0, 1e-9, 0, 0, 0, 0, 0, 0, 0, 0,    0, 0, 0, 0, 0,
 
@@ -103,7 +104,7 @@
 
                                                       0, 0, 0, 1e-9, 0, 0, 0, 0, 0, 0,    0, 0, 0, 0, 0,
 
-                                                      0, 0, 0, 0, 1e-9, 0, 0, 0, 0, 0,    0, 0, 0, 0, 0,
+                                                      0, 0, 0, 0,wheels 1e-9, 0, 0, 0, 0, 0,    0, 0, 0, 0, 0,
 
                                                       0, 0, 0, 0, 0, 1e-9, 0, 0, 0, 0,    0, 0, 0, 0, 0,
 
@@ -123,7 +124,8 @@
 
                                                       0, 0, 0, 0, 0, 0, 0, 0, 0, 0,    0, 0, 0, 1e-9, 0,
 
-                                                      0, 0, 0, 0, 0, 0, 0, 0, 0, 0,    0, 0, 0, 0, 1e-9]</rosparam>
+                                                      0, 0, 0, 0, 0, 0, 0, 0, 0, 0,    0, 0, 0, 0, 1e-9]
+      </rosparam>
 
    </node>
 
