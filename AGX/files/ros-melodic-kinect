@@ -1,0 +1,72 @@
+FROM dustynv/ros:melodic-ros-base-l4t-r32.7.1
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN mkdir -p /catkin_ws/src
+
+WORKDIR /catkin_ws/src
+
+RUN apt-get update --fix-missing && apt-get install --no-install-recommends -y \
+    git \
+    apt-utils \
+    cmake \
+    build-essential \
+    curl \
+    wget \
+    gnupg2 \
+    lsb-release \
+    ca-certificates \
+    python-rosinstall-generator \
+    python-rosdep \
+    python-rosinstall \
+    python-wstool \
+    libcanberra-gtk-module \
+    libcanberra-gtk3-module
+
+RUN git clone --branch melodic-devel https://github.com/ros-drivers/freenect_stack.git
+
+RUN git clone --branch melodic https://github.com/ros-perception/image_pipeline.git
+
+RUN git clone --branch indigo-devel https://github.com/ros-drivers/openni_camera.git
+
+WORKDIR /catkin_ws
+
+RUN rosdep update
+
+RUN rosdep install --from-paths src --ignore-src -r -y
+
+RUN /bin/bash -c '. /opt/ros/melodic/setup.bash; cd /catkin_ws; catkin_make'
+
+RUN echo "source /catkin_ws/devel/setup.bash" >> ~/.bashrc
+RUN /bin/bash -c '. /catkin_ws/devel/setup.bash'
+
+COPY exec.sh exec.sh
+
+
+# nvidia-container-runtime
+ENV NVIDIA_VISIBLE_DEVICES \
+    ${NVIDIA_VISIBLE_DEVICES:-all}
+ENV NVIDIA_DRIVER_CAPABILITIES \
+    ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
+
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/aarch64-linux-gnu/tegra
+
+#executing command [apt-get install -y libopenni-dev]
+#executing command [apt-get install -y ros-melodic-urdf]
+#executing command [apt-get install -y ros-melodic-diagnostic-updater]
+#executing command [apt-get install -y ros-melodic-rgbd-launch]
+#executing command [apt-get install -y ros-melodic-eigen-conversions]
+#executing command [apt-get install -y ros-melodic-tf2]
+#executing command [apt-get install -y liburdfdom-tools]
+#executing command [apt-get install -y ros-melodic-xacro]
+#executing command [apt-get install -y ros-melodic-tf2-ros]
+#executing command [apt-get install -y ros-melodic-camera-calibration-parsers]
+#executing command [apt-get install -y ros-melodic-tf]
+#executing command [apt-get install -y ros-melodic-image-geometry]
+#executing command [apt-get install -y libgtk2.0-dev]
+#executing command [apt-get install -y libfreenect-dev]
+#executing command [apt-get install -y ros-melodic-cv-bridge]
+#executing command [apt-get install -y ros-melodic-tf2-geometry-msgs]
+#executing command [apt-get install -y ros-melodic-camera-info-manager]
+#executing command [apt-get install -y libusb-1.0-0-dev]
+

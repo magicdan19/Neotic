@@ -1,0 +1,41 @@
+version: "3.9"
+    
+services:
+  opencr:
+    image: magicdan/aarch64-ros-noetic-opencr:latest
+    network_mode: "host" 
+    environment:
+      - "ROS_MASTER_URI=http://jetsonagx:11311"
+      
+    volumes:
+      - /dev/:/dev/
+    command: rosrun rosserial_python serial_node.py __name:="opencr" _baud:=115200 _port:=/dev/ttopencr
+    restart: always
+  
+  nano:
+    image: magicdan/aarch64-ros-noetic-opencr:latest
+    network_mode: "host" 
+    environment:
+      - "ROS_MASTER_URI=http://jetsonagx:11311"
+    volumes:
+      - /dev/:/dev/
+    command: rosrun rosserial_python serial_node.py __name:="nano" _baud:=115200 _port:=/dev/ttynano
+    restart: always
+  
+  kinect:
+    image: magicdan/aarch64-ros-noetic-kinect:latest
+    network_mode: "host" 
+    environment:
+      - "ROS_MASTER_URI=http://jetsonagx:11311"
+    volumes:
+      - /dev/:/dev/
+    command: /catkin_ws/exec.sh
+    restart: always
+    # roslaunch turtlebot3_gazebo turtlebot3_gazebo_rviz.launch
+    # rosrun rviz rviz
+    # roslaunch gazebo_ros willowgarage_world.launch
+    # rosrun turtlesim turtlesim_node
+    # rospack list
+    # roslaunch turtlebot3_fake turtlebot3_fake.launch
+
+    # source "/catkin_ws/devel/setup.bash"

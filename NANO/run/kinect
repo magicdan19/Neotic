@@ -1,0 +1,24 @@
+#!/bin/bash
+
+docker run -it --rm --privileged --net=host \
+  --volume /dev:/dev \
+  --env=ROS_MASTER_URI=http://jetsonagx:11311/ \
+  --env=ROS_HOSTNAME=jetsonnano \
+  --volume=/dev/ttykinect:/dev/ttykinect \
+  magicdan/ros-kinect-aarch64:latest \
+/catkin_ws/exec.sh
+
+# /bin/bash
+# roslaunch freenect_launch freenect.launch
+# rosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.030 image:=/camera/rgb/image_raw camera:=/camera/ir
+# roslaunch freenect_launch freenect.launch depth_registration:=true
+
+# roslaunch openni_launch openni.launch depth_registration:=true
+
+#/catkin_ws/exec.sh
+
+## proble d'openGL corrigé
+#apt-get install mesa-utils
+
+#rosdep install --from-paths src --ignore-src -r -y
+# A00363A07046048A

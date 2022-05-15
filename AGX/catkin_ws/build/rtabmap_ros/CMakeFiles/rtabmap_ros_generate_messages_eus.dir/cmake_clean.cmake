@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/rtabmap_ros_generate_messages_eus"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/msg/UserData.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/msg/EnvSensor.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/msg/OdomInfo.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/msg/Point3f.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/msg/Link.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/msg/RGBDImages.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/msg/KeyPoint.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/msg/ScanDescriptor.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/msg/MapGraph.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/msg/Path.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/msg/Goal.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/msg/RGBDImage.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/msg/Point2f.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/msg/NodeData.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/msg/GlobalDescriptor.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/msg/MapData.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/msg/Info.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/msg/GPS.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/srv/LoadDatabase.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/srv/GetPlan.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/srv/GetMap.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/srv/ResetPose.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/srv/SetLabel.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/srv/PublishMap.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/srv/SetGoal.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/srv/GetNodesInRadius.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/srv/GetMap2.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/srv/RemoveLabel.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/srv/GetNodeData.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/srv/GlobalBundleAdjustment.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/srv/CleanupLocalGrids.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/srv/DetectMoreLoopClosures.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/srv/ListLabels.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/srv/AddLink.l"
+  "/catkin_ws/devel/share/roseus/ros/rtabmap_ros/manifest.l"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/rtabmap_ros_generate_messages_eus.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

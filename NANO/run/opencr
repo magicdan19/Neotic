@@ -1,0 +1,21 @@
+#!/bin/bash
+
+docker run -it --rm --privileged --net=host \
+  --env=ROS_MASTER_URI=http://jetsonagx:11311/ \
+  --env=ROS_HOSTNAME=jetsonnano \
+  --volume=/dev:/dev \
+  --name opencr \
+  magicdan/ros-opencr-aarch64:latest \
+  /bin/bash
+
+# /bin/bash
+# rosrun rosserial_python serial_node.py __name:="opencr" _baud:=115200 _port:=/dev/ttyopencr
+# rosrun turtlesim turtlesim_node
+
+#### après reboot executer :
+#### xhost +local:root
+
+# rostopic pub coupe std_msgs/Empty --once
+# rostopic pub fan std_msgs/Empty --once
+
+# sudo chmod 777 /var/run/docker.sock

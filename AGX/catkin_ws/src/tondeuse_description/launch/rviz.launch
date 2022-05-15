@@ -1,0 +1,20 @@
+
+<launch>
+  
+  <arg name="model" default="$(find tondeuse_description)/sdf/tondeuse_gazebo.xacro"/>
+  <arg name="rvizconfig" default="$(find tondeuse_launch)/rviz/config_file.rviz" />
+
+  <param name="/use_sim_time" type="bool" value="true"/>
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+
+   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <!--node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /-->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
+   <arg name="map_file" default="$(find tondeuse_navigation)/map/deuxieme.yaml"/>
+
+  <!-- Run the map server >
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" /-->
+
+</launch>
+

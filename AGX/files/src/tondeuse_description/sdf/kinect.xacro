@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<robot name="tondeuse" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<link name="camera_link" />
+  
+<link name="kinect_link">
+  <visual>
+    <geometry>
+      <box size="0.28 0.06 0.07 " />
+    </geometry>
+    <material name="Blue" />
+  </visual>
+  <inertial>
+      <mass value="0.0001" />
+      <origin xyz="0 0 0" />
+      <inertia ixx="0.0001" ixy="0.0" ixz="0.0"
+               iyy="0.0001" iyz="0.0" 
+               izz="0.0001" />
+  </inertial>
+</link>
+
+<joint name="kinect_depth_joint" type="fixed">
+  <origin xyz="0 0 0" rpy="0 0 0" />
+  <parent link="kinect_link" />
+  <child link="kinect_depth_frame" />
+</joint>
+
+<link name="kinect_depth_frame">
+  <inertial>
+      <mass value="0.0001" />
+      <origin xyz="0 0 0" />
+      <inertia ixx="0.0001" ixy="0.0" ixz="0.0"
+               iyy="0.0001" iyz="0.0" 
+               izz="0.0001" />
+  </inertial>
+</link>
+
+<joint name="depth_optical_joint" type="fixed">
+  <origin xyz="0 0 0" rpy="0 0 0 " />
+  <parent link="kinect_depth_frame" />
+  <child link="kinect_depth_optical_frame" />
+</joint>
+
+<link name="kinect_depth_optical_frame">
+  <inertial>
+      <mass value="0.0001" />
+      <origin xyz="0 0 0" />
+      <inertia ixx="0.0001" ixy="0.0" ixz="0.0"
+               iyy="0.0001" iyz="0.0" 
+               izz="0.0001" />
+  </inertial>
+</link>
+
+<joint name="kinect_base_link_joint" type="fixed">
+  <origin xyz="0.12 0 0.09" rpy="0 0 1.570796" />
+  <parent link="base_link" />
+  <child link="kinect_link" />
+</joint>
+
+<joint name="camera_base_link_joint" type="fixed">
+  <origin xyz="0 0 0" rpy="0 0 0" />
+  <parent link="base_link" />
+  <child link="camera_link" />
+</joint>
+  
+</robot>

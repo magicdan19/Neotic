@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <include file="$(find tondeuse_launch)/launch/base.launch" />
+
+  <arg name="gui" default="false" />
+  <arg name="rvizconfig" default="$(find tondeuse_launch)/rviz/config_file.rviz" />
+  
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+</launch>
+ 

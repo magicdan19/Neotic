@@ -1,0 +1,42 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/rtabmap_ros_generate_messages_cpp"
+  "/catkin_ws/devel/include/rtabmap_ros/UserData.h"
+  "/catkin_ws/devel/include/rtabmap_ros/EnvSensor.h"
+  "/catkin_ws/devel/include/rtabmap_ros/OdomInfo.h"
+  "/catkin_ws/devel/include/rtabmap_ros/Point3f.h"
+  "/catkin_ws/devel/include/rtabmap_ros/Link.h"
+  "/catkin_ws/devel/include/rtabmap_ros/RGBDImages.h"
+  "/catkin_ws/devel/include/rtabmap_ros/KeyPoint.h"
+  "/catkin_ws/devel/include/rtabmap_ros/ScanDescriptor.h"
+  "/catkin_ws/devel/include/rtabmap_ros/MapGraph.h"
+  "/catkin_ws/devel/include/rtabmap_ros/Path.h"
+  "/catkin_ws/devel/include/rtabmap_ros/Goal.h"
+  "/catkin_ws/devel/include/rtabmap_ros/RGBDImage.h"
+  "/catkin_ws/devel/include/rtabmap_ros/Point2f.h"
+  "/catkin_ws/devel/include/rtabmap_ros/NodeData.h"
+  "/catkin_ws/devel/include/rtabmap_ros/GlobalDescriptor.h"
+  "/catkin_ws/devel/include/rtabmap_ros/MapData.h"
+  "/catkin_ws/devel/include/rtabmap_ros/Info.h"
+  "/catkin_ws/devel/include/rtabmap_ros/GPS.h"
+  "/catkin_ws/devel/include/rtabmap_ros/LoadDatabase.h"
+  "/catkin_ws/devel/include/rtabmap_ros/GetPlan.h"
+  "/catkin_ws/devel/include/rtabmap_ros/GetMap.h"
+  "/catkin_ws/devel/include/rtabmap_ros/ResetPose.h"
+  "/catkin_ws/devel/include/rtabmap_ros/SetLabel.h"
+  "/catkin_ws/devel/include/rtabmap_ros/PublishMap.h"
+  "/catkin_ws/devel/include/rtabmap_ros/SetGoal.h"
+  "/catkin_ws/devel/include/rtabmap_ros/GetNodesInRadius.h"
+  "/catkin_ws/devel/include/rtabmap_ros/GetMap2.h"
+  "/catkin_ws/devel/include/rtabmap_ros/RemoveLabel.h"
+  "/catkin_ws/devel/include/rtabmap_ros/GetNodeData.h"
+  "/catkin_ws/devel/include/rtabmap_ros/GlobalBundleAdjustment.h"
+  "/catkin_ws/devel/include/rtabmap_ros/CleanupLocalGrids.h"
+  "/catkin_ws/devel/include/rtabmap_ros/DetectMoreLoopClosures.h"
+  "/catkin_ws/devel/include/rtabmap_ros/ListLabels.h"
+  "/catkin_ws/devel/include/rtabmap_ros/AddLink.h"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/rtabmap_ros_generate_messages_cpp.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
