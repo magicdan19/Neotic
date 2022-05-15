@@ -1,6 +1,7 @@
 #!/bin/bash
 
 xhost +si:localuser:root 
+sudo chmod 777 /var/run/docker.sock
 
 docker run -it --rm --privileged --net=host \
     --env=ROS_MASTER_URI=http://msi:11311/ \
@@ -13,11 +14,12 @@ docker run -it --rm --privileged --net=host \
     --env=NVIDIA_VISIBLE_DEVICES=0 \
     --volume /tmp/.X11-unix:/tmp/.X11-unix \
     --volume /home/dan/catkin_ws:/catkin_ws \
+    --volume /dev:/dev \
 magicdan/msi-ros-noetic-full \
 /bin/bash
 
 # /bin/bash
-# rosrun rosserial_python serial_node.py _baud:=115200 _port:=/dev/ttyopencr
+# rosrun rosserial_python serial_node.py _baud:=115200 _port:=/dev/ttyACM0
 # rosrun turtlesim turtlesim_node
 
 #### après reboot executer :
